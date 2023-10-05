@@ -119,6 +119,24 @@ class Node{
 	   */
 	   public boolean find(Node root, int key){
 		 //implement in here
+		   if(root != null){
+			   //return the node if the keys match
+			   if(root.value == key){
+				   return node;
+			   }else{
+				   //check left nodes to see if viable
+				   Node nextNode = find(root.left, key);
+				   //if null, then not found, so check right nodes
+				   if(nextNode == null){
+					   nextNode = find(root.right,key);
+				   }
+				   //return the nextNode to see what the recursion came up with
+				   return nextNode;
+			   }
+		   }else{
+			   //if the root is null, then there's no searching left
+			   return null;
+		   }
 		  
 	   }
 	   
@@ -140,7 +158,7 @@ class Node{
 	   with a largest key
 	   */
 	   public int getMax(Node root){
-         //implement in here
+         
 	   }
 	   
 	   
