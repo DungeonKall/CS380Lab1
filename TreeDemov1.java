@@ -116,6 +116,10 @@ class Node{
 	   /*
 	   a method to find the node in the tree
 	   with a specific value
+
+	   -correction on assignment,
+	   method returns boolean, so its just to check
+	   if the node with such a key exists
 	   */
 	   public boolean find(Node root, int key){
 		 //implement in here
@@ -135,7 +139,7 @@ class Node{
 			   }
 		   }else{
 			   //if the root is null, then there's no searching left
-			   return null;
+			   return false;
 		   }
 		  
 	   }
@@ -156,9 +160,32 @@ class Node{
 	   /*
 	   a method to find the node in the tree
 	   with a largest key
+
+	   -correction of assignment,
+	   it returns int so this then searches for and returns
+	   the largest int
 	   */
 	   public int getMax(Node root){
-         
+		   //implement in here
+		   //return min if there's no root
+		   if (root == null) {
+			   return Integer.MIN_VALUE;
+		   }
+			//set up comparison vars, and search for left and right max
+		   int val = root.value;
+		   int leftval = findMax(root.left);
+		   int rightval = findMax(root.right);
+
+		   //if left biggest, store left val
+		   if (leftval > rightval){
+			   val = leftval;
+		   }
+		   //if right biggest, store right val
+		   if (rightval > val){
+			   val = rightval;
+		   }
+			//returns max value in the tree
+		   return val;
 	   }
 	   
 	   
